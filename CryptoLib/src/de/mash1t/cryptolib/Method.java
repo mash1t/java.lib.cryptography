@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.mash1t.cryptography;
+package de.mash1t.cryptolib;
 
 /**
  * Contains all available encryption methods

@@ -21,26 +21,44 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.mash1t.cryptography;
+package de.mash1t.cryptolib;
 
-import java.math.BigInteger;
-import java.security.SecureRandom;
+import de.mash1t.cryptolib.method.Aes;
 
 /**
- * Creator for a session id
+ * Contains all basic information for session and cryptography
  *
  * @author Manuel Schmid
  */
-public final class SessionIdGenerator {
-
-    private final SecureRandom random = new SecureRandom();
+public final class CryptoBasics {
 
     /**
-     * Creates a new SessionId
-     *
-     * @return String sessionId
+     * Encryption in bytes,
      */
-    public String nextSessionId() {
-        return new BigInteger(CryptoBasics.encryptionBits, random).toString(CryptoBasics.encryption);
+    public static final int encryption = 16;
+
+    /**
+     * Bits to make SessionId from
+     */
+    public static final int encryptionBits = (encryption * 8);
+
+    /**
+     * Currently used encryption method
+     */
+    public static final Method encMethod = Method.OFF;
+
+    /**
+     * Makes an encryption object of type encMethod
+     *
+     * @param <T>
+     * @return
+     */
+    public static final <T> T makeEncryptionObject() {
+        switch (encMethod) {
+            case AES:
+                return (T) new Aes();
+            default:
+                return (T) new EncryptionMethod();
+        }
     }
 }

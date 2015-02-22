@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.mash1t.cryptography.method;
+package de.mash1t.cryptolib.method;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -35,9 +35,9 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
-import de.mash1t.cryptography.CryptoBasics;
-import de.mash1t.cryptography.EncryptionMethod;
-import de.mash1t.cryptography.crypter;
+import de.mash1t.cryptolib.CryptoBasics;
+import de.mash1t.cryptolib.EncryptionMethod;
+import de.mash1t.cryptolib.crypter;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package de.mash1t.cryptography;
+package de.mash1t.cryptolib;
 
 import java.io.IOException;
 import java.security.InvalidKeyException;

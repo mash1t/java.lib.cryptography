@@ -1,7 +1,7 @@
 # Java Cryptography Library
 
 ### Features
-- 
+- Everything that you'd expect from a crypto-lib: encrypting and decrypting stuff!
 - Easy extendability, multiple abstract classes and interfaces
 
 ### Version

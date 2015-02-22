@@ -44,8 +44,8 @@ import sun.misc.BASE64Encoder;
 
 /**
  * Encryption method AES
- *
- * @see http://blog.axxg.de/java-aes-verschluesselung-mit-beispiel/
+ * http://blog.axxg.de/java-aes-verschluesselung-mit-beispiel/
+ * 
  * @author Manuel Schmid
  */
 public class Aes extends EncryptionMethod implements crypter {

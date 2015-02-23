@@ -41,6 +41,6 @@ public final class SessionIdGenerator {
      * @return String sessionId
      */
     public String nextSessionId() {
-        return new BigInteger(CryptoBasics.encryptionBits, random).toString(CryptoBasics.encryption);
+        return new BigInteger(CryptoBasics.encryptionBits, random).toString(CryptoBasics.encryptionBytes);
     }
 }

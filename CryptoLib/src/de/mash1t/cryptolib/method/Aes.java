@@ -98,7 +98,7 @@ public class Aes extends EncryptionMethod implements crypter {
             // Create secret key
             // TODO Change SecretKeySpec creation
             key = sha.digest(key);
-            key = Arrays.copyOf(key, CryptoBasics.encryption);
+            key = Arrays.copyOf(key, CryptoBasics.encryptionBytes);
             this.secretKeySpec = new SecretKeySpec(key, "AES");
             return true;
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException ex) {

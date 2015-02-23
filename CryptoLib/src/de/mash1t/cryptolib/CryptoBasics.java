@@ -30,35 +30,34 @@ import de.mash1t.cryptolib.method.Aes;
  *
  * @author Manuel Schmid
  */
-public final class CryptoBasics {
+public class CryptoBasics {
 
     /**
      * Encryption in bytes,
      */
-    public static final int encryption = 16;
+    public static final int encryptionBytes = 32;
 
     /**
      * Bits to make SessionId from
      */
-    public static final int encryptionBits = (encryption * 8);
+    public static final int encryptionBits = (encryptionBytes * 8);
 
     /**
-     * Currently used encryption method
+     * Currently used encryptionBytes method
      */
     public static final Method encMethod = Method.OFF;
 
     /**
      * Makes an encryption object of type encMethod
      *
-     * @param <T>
-     * @return
+     * @return EncryptionMethod
      */
-    public static final <T> T makeEncryptionObject() {
+    public static final EncryptionMethod makeEncryptionObject() {
         switch (encMethod) {
             case AES:
-                return (T) new Aes();
+                return new Aes();
             default:
-                return (T) new EncryptionMethod();
+                return new EncryptionMethod();
         }
     }
 }

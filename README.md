@@ -29,8 +29,6 @@ If you have any questions or feature requests, don't hesitate to contact me on [
 
 ### Current Todo's
 
- - [ ] Fix AES-Bug with large session ids
- - [ ] Add tests
  - [ ] Add more ways to encrypt/decrypt stuff (e.g. files)
  - [ ] Add support for config files
 

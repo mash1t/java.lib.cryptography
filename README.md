@@ -2,6 +2,7 @@
 
 ### Features
 - Everything that you'd expect from a crypto-lib: encrypting and decrypting stuff!
+- Multiple encryption methods such as: AES, Caesar, Vignère
 - Easy extendability, multiple abstract classes and interfaces
 
 ### Version

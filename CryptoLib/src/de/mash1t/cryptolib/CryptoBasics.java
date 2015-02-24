@@ -23,7 +23,8 @@
  */
 package de.mash1t.cryptolib;
 
-import de.mash1t.cryptolib.method.Aes;
+import static de.mash1t.cryptolib.Method.Caesar;
+import de.mash1t.cryptolib.method.*;
 
 /**
  * Contains all basic information for session and cryptography
@@ -35,12 +36,22 @@ public class CryptoBasics {
     /**
      * Encryption in bytes,
      */
-    public static final int encryptionBytes = 32;
+    public static final int encryptionBytes = 16;
 
     /**
      * Bits to make SessionId from
      */
     public static final int encryptionBits = (encryptionBytes * 8);
+
+    /**
+     * Offset for various encryption methods
+     */
+    public static final int offset = 2;
+
+    /**
+     * Key for various encryption methods
+     */
+    public static final String key = "lwsFkxWwCnRFoaHubXfw";
 
     /**
      * Currently used encryptionBytes method
@@ -56,6 +67,10 @@ public class CryptoBasics {
         switch (encMethod) {
             case AES:
                 return new Aes();
+            case Caesar:
+                return new Caesar(offset);
+            case Vignere:
+                return new Vignere(key);
             default:
                 return new EncryptionMethod();
         }

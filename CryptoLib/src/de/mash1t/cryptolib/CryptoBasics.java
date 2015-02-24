@@ -36,34 +36,34 @@ public class CryptoBasics {
     /**
      * Encryption in bytes,
      */
-    public static final int encryptionBytes = 16;
+    public static int encryptionBytes = 16;
 
     /**
      * Bits to make SessionId from
      */
-    public static final int encryptionBits = (encryptionBytes * 8);
+    public static int encryptionBits = (encryptionBytes * 8);
 
     /**
      * Offset for various encryption methods
      */
-    public static final int offset = 2;
+    public static int offset = 2;
 
     /**
      * Key for various encryption methods
      */
-    public static final String key = "lwsFkxWwCnRFoaHubXfw";
+    public static String key = "lwsFkxWwCnRFoaHubXfw";
 
     /**
      * Currently used encryptionBytes method
      */
-    public static final Method encMethod = Method.OFF;
+    public static Method encMethod = Method.OFF;
 
     /**
      * Makes an encryption object of type encMethod
      *
      * @return EncryptionMethod
      */
-    public static final EncryptionMethod makeEncryptionObject() {
+    public static EncryptionMethod makeEncryptionObject() {
         switch (encMethod) {
             case AES:
                 return new Aes();

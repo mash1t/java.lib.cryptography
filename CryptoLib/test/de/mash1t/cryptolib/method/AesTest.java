@@ -88,8 +88,7 @@ public class AesTest {
      */
     @Test
     public void aes() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, IOException {
-        System.out.println("Current EncryptionBytes: " + encryptionBytes);
-        System.out.println("Current EncryptionBits: " + encryptionBits);
+        System.out.println("AES " + encryptionBits);
         
         EncryptionMethod aes = new Aes();
 
@@ -112,6 +111,7 @@ public class AesTest {
      */
     @Test
     public void off() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, IOException {
+        System.out.println("AES OFF");
         EncryptionMethod encMethod = new EncryptionMethod();
 
         String encrypted = encMethod.encrypt(base);
@@ -134,6 +134,7 @@ public class AesTest {
      */
     @Test
     public void current() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, IOException {
+        System.out.println("AES Current");
         EncryptionMethod encMethod = CryptoBasics.makeEncryptionObject();
 
         String encrypted = encMethod.encrypt(base);

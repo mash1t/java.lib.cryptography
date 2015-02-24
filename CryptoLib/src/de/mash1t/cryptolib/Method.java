@@ -31,5 +31,7 @@ package de.mash1t.cryptolib;
 public enum Method {
 
     OFF,
-    AES;
+    AES,
+    Caesar,
+    Vignere;
 }

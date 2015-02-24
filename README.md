@@ -2,13 +2,14 @@
 
 ### Features
 - Everything that you'd expect from a crypto-lib: encrypting and decrypting stuff!
+- Multiple encryption methods such as: AES, Caesar, Vignère
 - Easy extendability, multiple abstract classes and interfaces
 
 ### Version
-0.1.0
+0.1.1
 
 ### Download
-- Download the JAR-Lib directly with [this link] from GitHub (latest master-branch)
+- Download the CryptoLib directly with [this link] (latest released)
 - Or clone the whole repository:
 ```sh
 $ git clone git@github.com:mash1t/java.lib.cryptography.git CryptoLib
@@ -36,6 +37,6 @@ License
 ----
 This software is under MIT-License.
 
-[this link]:https://github.com/mash1t/java.lib.cryptography/raw/master/CryptoLib/dist/CryptoLib.jar
+[this link]:https://github.com/mash1t/java.lib.cryptography/raw/0.1.1/CryptoLib/dist/CryptoLib.jar
 [homepage]:http://mash1t.de/
 [Twitter]:https://twitter.com/mash1t

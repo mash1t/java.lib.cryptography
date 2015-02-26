@@ -9,7 +9,7 @@
 0.1.1
 
 ### Download
-- Download the CryptoLib directly with [this link] (latest released)
+- Download the CryptoLib directly with [this link] (latest release)
 - Or clone the whole repository:
 ```sh
 $ git clone git@github.com:mash1t/java.lib.cryptography.git CryptoLib

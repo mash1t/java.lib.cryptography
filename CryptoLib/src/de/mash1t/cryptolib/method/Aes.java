@@ -43,9 +43,8 @@ import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 /**
- * Encryption method AES
- * http://blog.axxg.de/java-aes-verschluesselung-mit-beispiel/
- * 
+ * Encryption method AES http://blog.axxg.de/java-aes-verschluesselung-mit-beispiel/
+ *
  * @author Manuel Schmid
  */
 public class Aes extends EncryptionMethod implements crypter {
@@ -56,11 +55,33 @@ public class Aes extends EncryptionMethod implements crypter {
      * Makes a new secretKeySpec from the SessionId
      */
     public Aes() {
-        this.makeKey();
+        this.makeKey(sessionId);
+    }
+
+    /**
+     * Makes a new secretKeySpec from a custom key
+     *
+     * @param key
+     */
+    public Aes(Object key) {
+        this.makeKey(key);
     }
 
     @Override
     public String encrypt(String message) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        // Encrypt bytes
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
+        byte[] encrypted = cipher.doFinal(message.getBytes());
+
+        // Convert bytes to Base64-String
+        BASE64Encoder myEncoder = new BASE64Encoder();
+
+        // Result
+        return myEncoder.encode(encrypted);
+    }
+
+    public static String encrypt(String message, SecretKeySpec secretKeySpec) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         // Encrypt bytes
         Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
@@ -79,20 +100,33 @@ public class Aes extends EncryptionMethod implements crypter {
         BASE64Decoder myDecoder2 = new BASE64Decoder();
         byte[] crypted2 = myDecoder2.decodeBuffer(message);
 
-        // Entschluesseln
+        // Decode
         Cipher cipher2 = Cipher.getInstance("AES");
         cipher2.init(Cipher.DECRYPT_MODE, secretKeySpec);
         byte[] cipherData2 = cipher2.doFinal(crypted2);
         String erg = new String(cipherData2);
 
-        // Klartext
         return erg;
     }
 
-    public boolean makeKey() {
+    public static String decrypt(String message, SecretKeySpec secretKeySpec) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        // BASE64 String zu Byte-Array konvertieren
+        BASE64Decoder myDecoder2 = new BASE64Decoder();
+        byte[] crypted2 = myDecoder2.decodeBuffer(message);
+
+        // Decode
+        Cipher cipher2 = Cipher.getInstance("AES");
+        cipher2.init(Cipher.DECRYPT_MODE, secretKeySpec);
+        byte[] cipherData2 = cipher2.doFinal(crypted2);
+        String erg = new String(cipherData2);
+
+        return erg;
+    }
+
+    protected final boolean makeKey(Object keyObj) {
         try {
             // Make Byte-Array out of session id
-            byte[] key = sessionId.getBytes("UTF-8");
+            byte[] key = keyObj.toString().getBytes("UTF-8");
             // Create MD5 hash from array
             MessageDigest sha = MessageDigest.getInstance("SHA-256");
             // Create secret key
@@ -103,6 +137,22 @@ public class Aes extends EncryptionMethod implements crypter {
             return true;
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException ex) {
             return false;
+        }
+    }
+
+    protected static final SecretKeySpec makeSecretKeySpec(Object keyObj) {
+        try {
+            // Make Byte-Array out of session id
+            byte[] key = keyObj.toString().getBytes("UTF-8");
+            // Create MD5 hash from array
+            MessageDigest sha = MessageDigest.getInstance("SHA-256");
+            // Create secret key
+            // TODO Change SecretKeySpec creation
+            key = sha.digest(key);
+            key = Arrays.copyOf(key, CryptoBasics.encryptionBytes);
+            return new SecretKeySpec(key, "AES");
+        } catch (UnsupportedEncodingException | NoSuchAlgorithmException ex) {
+            return null;
         }
     }
 }

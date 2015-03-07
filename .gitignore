@@ -14,3 +14,7 @@
 hs_err_pid*
 /CryptoLib/build/
 /CryptoLib/dist/
+
+# test files
+/CryptoLib/private
+/CryptoLib/pub.dat

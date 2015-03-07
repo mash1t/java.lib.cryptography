@@ -44,6 +44,11 @@ public class CryptoBasics {
     public static int encryptionBits = (encryptionBytes * 8);
 
     /**
+     * Bits to make RSA-Keys from
+     */
+    public static int rsaKeyBits = 2048;
+
+    /**
      * Offset for various encryption methods
      */
     public static int offset = 2;

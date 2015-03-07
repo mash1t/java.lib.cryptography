@@ -68,7 +68,7 @@ public class Aes extends EncryptionMethod implements crypter {
     }
 
     @Override
-    public String encrypt(String message) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    public String encryptString(String message) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         // Encrypt bytes
         Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
@@ -81,7 +81,7 @@ public class Aes extends EncryptionMethod implements crypter {
         return myEncoder.encode(encrypted);
     }
 
-    public static String encrypt(String message, SecretKeySpec secretKeySpec) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    public static String encryptString(String message, SecretKeySpec secretKeySpec) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         // Encrypt bytes
         Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);
@@ -95,7 +95,7 @@ public class Aes extends EncryptionMethod implements crypter {
     }
 
     @Override
-    public String decrypt(String message) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    public String decryptString(String message) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         // BASE64 String zu Byte-Array konvertieren
         BASE64Decoder myDecoder2 = new BASE64Decoder();
         byte[] crypted2 = myDecoder2.decodeBuffer(message);
@@ -109,7 +109,7 @@ public class Aes extends EncryptionMethod implements crypter {
         return erg;
     }
 
-    public static String decrypt(String message, SecretKeySpec secretKeySpec) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    public static String decryptString(String message, SecretKeySpec secretKeySpec) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         // BASE64 String zu Byte-Array konvertieren
         BASE64Decoder myDecoder2 = new BASE64Decoder();
         byte[] crypted2 = myDecoder2.decodeBuffer(message);

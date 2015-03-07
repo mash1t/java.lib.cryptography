@@ -92,10 +92,10 @@ public class AesTest {
         
         EncryptionMethod aes = new Aes();
 
-        String encrypted = aes.encrypt(base);
+        String encrypted = aes.encryptString(base);
         assertFalse(base.equals(encrypted));
 
-        String decrypted = aes.decrypt(encrypted);
+        String decrypted = aes.decryptString(encrypted);
         assertEquals(decrypted, base);
     }
 
@@ -114,10 +114,10 @@ public class AesTest {
         System.out.println("AES OFF");
         EncryptionMethod encMethod = new EncryptionMethod();
 
-        String encrypted = encMethod.encrypt(base);
+        String encrypted = encMethod.encryptString(base);
         assertEquals(base, encrypted);
 
-        String decrypted = encMethod.decrypt(encrypted);
+        String decrypted = encMethod.decryptString(encrypted);
         assertEquals(decrypted, base);
     }
 
@@ -137,8 +137,8 @@ public class AesTest {
         System.out.println("AES Current");
         EncryptionMethod encMethod = CryptoBasics.makeEncryptionObject();
 
-        String encrypted = encMethod.encrypt(base);
-        String decrypted = encMethod.decrypt(encrypted);
+        String encrypted = encMethod.encryptString(base);
+        String decrypted = encMethod.decryptString(encrypted);
         assertEquals(decrypted, base);
     }
 }

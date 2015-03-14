@@ -10,10 +10,13 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
 import org.bouncycastle.openpgp.PGPException;
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class RsaTest {
 
+     private final String base = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l";
+    
     @Test
     public void genKeyPair() throws InvalidKeyException, NoSuchProviderException, SignatureException, IOException, PGPException, NoSuchAlgorithmException {
         Rsa rsa = new Rsa();
@@ -23,14 +26,16 @@ public class RsaTest {
     @Test
     public void encryptString() throws NoSuchProviderException, IOException, PGPException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         Rsa rsa = new Rsa();
-        String encrypted = rsa.encryptString("Hallo Du Da");
+        String encrypted = rsa.encryptString(base);
+        assertFalse(base.equals(encrypted));
     }
 
     @Test
     public void decryptString() throws NoSuchProviderException, IOException, PGPException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         Rsa rsa = new Rsa();
-         String encrypted = rsa.encryptString("Hallo Du Da");
+        String encrypted = rsa.encryptString(base);
         String decrypted = rsa.decryptString(encrypted);
+        assertEquals(base, decrypted);
     }
 
 }

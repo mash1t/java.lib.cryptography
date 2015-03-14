@@ -47,21 +47,23 @@ import org.bouncycastle.openpgp.PGPPublicKey;
  */
 public class Rsa implements crypter {
 
-    private boolean isArmored = false;
-    private String id = "damico";
-    private String passwd = "******";
-    private boolean integrityCheck = true;
-
-    private String publicKeyFile = "pub.dat";
-    private String privateKeyFile = "private";
+    private final boolean isArmored = false;
+    private String id = "mash1t";
+    private String passwd = "test123";
+    private final boolean integrityCheck = true;
 
     protected final String publicKeyFileName = "pub.dat";
     protected final String privateKeyFileName = "private";
+    
+    private String publicKeyFile = publicKeyFileName;
+    private String privateKeyFile = privateKeyFileName;
 
     /**
      * Ret
      *
      * @return
+     * @throws java.io.FileNotFoundException
+     * @throws org.bouncycastle.openpgp.PGPException
      */
     public PGPPublicKey getPublicKey() throws FileNotFoundException, IOException, PGPException {
         // TODO read from file when not set
@@ -70,7 +72,9 @@ public class Rsa implements crypter {
     }
 
     /**
-     * Generates a pair of keys and writes it to preset files
+     *  Generates public and private key files with preset credentials written to preset paths. Not recommended to use
+     * this method due to similar id/password shared with other generated keys for other users except you know what you
+     * do
      *
      * @throws InvalidKeyException
      * @throws NoSuchProviderException

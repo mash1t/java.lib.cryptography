@@ -314,7 +314,7 @@ public class PgpHelper {
         }
     }
 
-    public String encryptString(String message, PGPPublicKey encKey, boolean armor, boolean withIntegrityCheck) throws IOException, NoSuchProviderException, PGPException {
+    public String encryptString(String message, PGPPublicKey encKey, boolean withIntegrityCheck) throws IOException, NoSuchProviderException, PGPException {
         Security.addProvider(new BouncyCastleProvider());
 
         ByteArrayOutputStream bOut = new ByteArrayOutputStream();

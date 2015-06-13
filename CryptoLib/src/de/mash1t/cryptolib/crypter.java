@@ -26,6 +26,7 @@ package de.mash1t.cryptolib;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
@@ -40,20 +41,22 @@ public interface crypter {
     /**
      * Encrypts a message
      *
-     * @param message message to encrypt
+     * @param message message to encryptString
      * @return encrypted message
      * @throws java.security.NoSuchAlgorithmException
      * @throws javax.crypto.NoSuchPaddingException
      * @throws java.security.InvalidKeyException
      * @throws javax.crypto.IllegalBlockSizeException
      * @throws javax.crypto.BadPaddingException
+     * @throws java.io.IOException
+     * @throws java.security.NoSuchProviderException
      */
-    String encrypt(String message) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException;
+    String encryptString(String message) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, IOException, NoSuchProviderException;
 
     /**
      * Decrypts a message
      *
-     * @param message message to decrypt
+     * @param message message to decryptString
      * @return decrypted message
      * @throws java.io.IOException
      * @throws java.security.NoSuchAlgorithmException
@@ -61,6 +64,7 @@ public interface crypter {
      * @throws java.security.InvalidKeyException
      * @throws javax.crypto.IllegalBlockSizeException
      * @throws javax.crypto.BadPaddingException
+     * @throws java.security.NoSuchProviderException
      */
-    String decrypt(String message) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException;
+    String decryptString(String message) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, IOException, NoSuchProviderException;
 }

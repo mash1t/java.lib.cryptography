@@ -30,7 +30,6 @@ import java.security.NoSuchProviderException;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import org.bouncycastle.openpgp.PGPException;
 
 /**
  * Interface for various encryption methods
@@ -51,9 +50,8 @@ public interface crypter {
      * @throws javax.crypto.BadPaddingException
      * @throws java.io.IOException
      * @throws java.security.NoSuchProviderException
-     * @throws org.bouncycastle.openpgp.PGPException
      */
-    String encryptString(String message) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, IOException, NoSuchProviderException, PGPException;
+    String encryptString(String message) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, IOException, NoSuchProviderException;
 
     /**
      * Decrypts a message
@@ -67,7 +65,6 @@ public interface crypter {
      * @throws javax.crypto.IllegalBlockSizeException
      * @throws javax.crypto.BadPaddingException
      * @throws java.security.NoSuchProviderException
-     * @throws org.bouncycastle.openpgp.PGPException
      */
-    String decryptString(String message) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, IOException, NoSuchProviderException, PGPException;
+    String decryptString(String message) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, IOException, NoSuchProviderException;
 }

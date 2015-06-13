@@ -27,8 +27,8 @@ public class CaesarTest {
     public void testCipher() throws Exception {
         System.out.println("Caesar");
         EncryptionMethod caesar = new Caesar(CryptoBasics.offset);
-        String encrypted = caesar.encrypt(base);
-        String decrypted = caesar.decrypt(encrypted);
+        String encrypted = caesar.encryptString(base);
+        String decrypted = caesar.decryptString(encrypted);
         assertEquals(base, decrypted);
     }
 

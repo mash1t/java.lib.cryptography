@@ -40,12 +40,12 @@ public class EncryptionMethod implements crypter {
     public final String sessionId = new SessionIdGenerator().nextSessionId();
 
     @Override
-    public String encrypt(String message) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    public String encryptString(String message) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         return message;
     }
 
     @Override
-    public String decrypt(String message) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    public String decryptString(String message) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         return message;
     }
 }

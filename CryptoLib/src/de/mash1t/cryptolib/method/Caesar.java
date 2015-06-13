@@ -1,7 +1,25 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The MIT License
+ *
+ * Copyright 2015 Manuel Schmid.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 package de.mash1t.cryptolib.method;
 
@@ -29,11 +47,11 @@ public class Caesar extends EncryptionMethod implements crypter {
     /**
      * Encrypt a String with a preset offset
      *
-     * @param s String to encrypt
+     * @param s String to encryptString
      * @return encrypted String
      */
     @Override
-    public String encrypt(String s) {
+    public String encryptString(String s) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
             char t = s.charAt(i);
@@ -55,11 +73,11 @@ public class Caesar extends EncryptionMethod implements crypter {
     /**
      * Decrypt a String with a preset offset
      *
-     * @param s String to decrypt
+     * @param s String to decryptString
      * @return decrypted String
      */
     @Override
-    public String decrypt(String s) {
+    public String decryptString(String s) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
             char t = s.charAt(i);
@@ -85,7 +103,7 @@ public class Caesar extends EncryptionMethod implements crypter {
     /**
      * Encrypt a String with a specific offset
      *
-     * @param s String to encrypt
+     * @param s String to encryptString
      * @param offset Offset to apply to the String
      * @return encrypted String
      */
@@ -111,7 +129,7 @@ public class Caesar extends EncryptionMethod implements crypter {
     /**
      * Decrypt a String with a specific offset
      *
-     * @param s String to decrypt
+     * @param s String to decryptString
      * @param offset Offset to apply to the String
      * @return decrypted String
      */

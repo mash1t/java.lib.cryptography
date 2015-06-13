@@ -6,7 +6,7 @@
 - Easy extendability, multiple abstract classes and interfaces
 
 ### Version
-0.1.1
+0.1.2
 
 ### Download
 - Download the CryptoLib directly with [this link] (latest release)
@@ -37,6 +37,6 @@ License
 ----
 This software is under MIT-License.
 
-[this link]:https://github.com/mash1t/java.lib.cryptography/raw/0.1.1/CryptoLib/dist/CryptoLib.jar
+[this link]:https://github.com/mash1t/java.lib.cryptography/raw/0.1.2/CryptoLib/dist/CryptoLib.jar
 [homepage]:http://mash1t.de/
 [Twitter]:https://twitter.com/mash1t

@@ -25,8 +25,8 @@ public class VignereTest {
     public void testObject() throws Exception {
         System.out.println("Vignere");
         EncryptionMethod vignere = new Vignere(CryptoBasics.key);
-        String encrypted = vignere.encrypt(base);
-        String decrypted = vignere.decrypt(encrypted);
+        String encrypted = vignere.encryptString(base);
+        String decrypted = vignere.decryptString(encrypted);
         assertEquals(base, decrypted);
     }
 

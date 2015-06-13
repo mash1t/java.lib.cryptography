@@ -7,14 +7,6 @@ package de.mash1t.cryptolib.method;
 
 import de.mash1t.cryptolib.CryptoBasics;
 import de.mash1t.cryptolib.EncryptionMethod;
-import java.io.IOException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -35,8 +27,8 @@ public class CaesarTest {
     public void testCipher() throws Exception {
         System.out.println("Caesar");
         EncryptionMethod caesar = new Caesar(CryptoBasics.offset);
-        String encrypted = caesar.encrypt(base);
-        String decrypted = caesar.decrypt(encrypted);
+        String encrypted = caesar.encryptString(base);
+        String decrypted = caesar.decryptString(encrypted);
         assertEquals(base, decrypted);
     }
 

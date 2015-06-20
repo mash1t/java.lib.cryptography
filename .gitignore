@@ -14,3 +14,4 @@
 hs_err_pid*
 /CryptoLib/build/
 /CryptoLib/dist/
+/CryptoLib/nbproject/private/
